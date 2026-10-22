@@ -25,7 +25,7 @@ abstract class AbstractPaynlRequest extends AbstractRequest
      * @param array|null $data
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function sendRequestMultiCore($endpoint, array $data = null, string $method = 'GET', $fetchConfig = false)
+    public function sendRequestMultiCore($endpoint, ?array $data = null, string $method = 'GET', $fetchConfig = false)
     {
         $configResponse = [];
 
@@ -73,7 +73,7 @@ abstract class AbstractPaynlRequest extends AbstractRequest
         return $jsonErrorResponse;
     }
 
-    public function sendRequestRestApi($endpoint, array $data = null, string $method = 'GET') {
+    public function sendRequestRestApi($endpoint, ?array $data = null, string $method = 'GET') {
         $headers = $this->getAuthHeader();
         $headers += ['Content-Type' => 'application/json', 'accept' => 'application/json'];
 
